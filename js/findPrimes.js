@@ -1,6 +1,7 @@
       function findPrimes(n) {
         // Create an array of n elements, all initialized to true
         let sieve = Array(n).fill(true);
+       
         // if the n was equal to 20.  here what the sieve would look like
         //Index:  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
         // Value:  F   F   T   T   T   T   T   T   T   T   T   T   T   T   T   T   T   T   T   T
@@ -9,13 +10,24 @@
         sieve[0] = false;
         sieve[1] = false;
         
-        // Mark all multiples of 2, 3, 5, 7, 11, 13, 17... as composite
+        // Mark all multiples of 2, 3, 5, 7, 11, 13, 17... as composite/not prime numbers
         for (let i = 2; i <= Math.sqrt(n); i++) 
         {
           if (sieve[i]) 
           {
-            for (let j = i ** 2; j < n; j += i) {
+            for (let j = i ** 2; j < n; j = j + i) {
+              
               sieve[j] = false;
+              //after this line finish
+              
+              //Index:  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
+              //Value:  F   F   T   T   F   T   F   T   F   F   F   T   F   T   F   F   F   T   F   T
+
+              // Index:  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
+              // Value:  F   F   T   T   F   T   F   T   F   F   F   T   F   T   F   F   F   T   F   T
+
+              //2, 3, 5, 7, 11, 13, 17, 19
+            
             }
           }
         }
